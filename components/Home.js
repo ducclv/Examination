@@ -10,9 +10,6 @@ export default class Home extends Component {
     return (
       <View style={styles.container}>
         <Text>This is page Home</Text>
-        {/* <TouchableOpacity onPress={this.logout()}>
-          <Text>Log out</Text>
-        </TouchableOpacity> */}
         <Button onPress={this.logout} title="logout" />
       </View>
     );

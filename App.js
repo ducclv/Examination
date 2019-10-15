@@ -9,7 +9,7 @@
 import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import SignIn from './components/SignIn';
-// import SignUp from './components/SignUp';
+import SignUp from './components/SignUp';
 import Home from './components/Home';
 import React, {Component} from 'react';
 import {
@@ -19,19 +19,9 @@ import {
   AsyncStorage,
   StyleSheet,
 } from 'react-native';
-// import {AsyncStorage} from '@react-native-community/async-storege';
-// const MainNavigator = createStackNavigator({
-//   SignIn: {screen: SignIn},
-//   SignUp: {screen: SignUp},
-//   Home: {screen: Home},
-// });
 
-// const AuthStack = createStackNavigator(
-//   {SignIn: }
-//)
 const RootStack = createStackNavigator(
   {
-    // SignIn: SignIn,
     Home: Home,
   },
   {
@@ -41,8 +31,7 @@ const RootStack = createStackNavigator(
     },
   },
 );
-const AuthStack = createStackNavigator({SignIn: SignIn});
-
+const AuthStack = createStackNavigator({SignIn: SignIn, SignUp:SignUp});
 class AuthLoadingScreen extends Component {
   constructor(props) {
     super(props);
