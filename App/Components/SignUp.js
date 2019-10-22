@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  Navigation,
 } from 'react-native';
 import RadioForm, {
   RadioButton,
@@ -13,7 +14,6 @@ import RadioForm, {
   RadioButtonLabel,
 } from 'react-native-simple-radio-button';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-
 import styles from './Styles/SignUpStyles';
 
 var radio_props = [
@@ -130,8 +130,10 @@ export default class SignUp extends Component {
               onChangeText={email => this.setState({ email })}
               value={this.state.email}
             />
-            <TouchableOpacity style={styles.submitButton} onPress={this.login}>
-              <Text style={styles.submitButtonText}> Đăng nhập </Text>
+            <TouchableOpacity 
+              style={styles.submitButton} 
+              onPress={this.gotoSignIn}>
+              <Text style={styles.submitButtonText}> Đăng ký </Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -161,8 +163,11 @@ export default class SignUp extends Component {
       icEye: this.state.icEye,
       showPassword: this.state.showPassword,
       password: password
-    }
+    };
     this.setState(newState);
+  };
+  gotoSignIn=()=>{
+    this.props.navigation.navigate('SignIn');
   };
 }
 

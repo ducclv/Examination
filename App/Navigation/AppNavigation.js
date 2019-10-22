@@ -6,21 +6,15 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  ActivityIndicator,
-  StatusBar,
-  View,
-  AsyncStorage,
-} from 'react-native';
+
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import SignIn from '../Components/SignIn';
 import SignUp from '../Components/SignUp';
 import Setting from '../Components/Setting';
-import styles from './Styles/AppNavigationStyles';
 import Home from '../Components/Home';
 import LogOut from '../Components/LogOut';
+import AuthLoadingScreen from '../Components/AuthLoading';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 
 const MyDrawerNavigator = createDrawerNavigator({
@@ -33,28 +27,10 @@ const MyDrawerNavigator = createDrawerNavigator({
   drawerWidth: 250,
   drawerPosition:'left',
   drawerBackgroundColor:'pink',
+  // contentComponent: DrawerContent,
 });
 
 const AuthStack = createStackNavigator({ SignIn: SignIn, SignUp: SignUp });
-
-class AuthLoadingScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.loadData();
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <ActivityIndicator />
-        <StatusBar barStyle="default" />
-      </View>
-    );
-  }
-  loadData = async () => {
-    const isLoggedIn = await AsyncStorage.getItem('isLoggedIn');
-    this.props.navigation.navigate(isLoggedIn !== '1' ? 'Auth' : 'App');
-  };
-}
 
 export default createAppContainer(
   createSwitchNavigator(
@@ -65,6 +41,9 @@ export default createAppContainer(
     },
     {
       initialRouteName: 'AuthLoading',
+      navigationOptions:{
+        header: null,
+      }
     },
   ),
 );

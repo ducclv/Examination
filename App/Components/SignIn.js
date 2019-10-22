@@ -100,7 +100,7 @@ export default class SignIn extends Component {
   };
   gotoSignUp = () => {
     this.props.navigation.navigate('SignUp');
-  }
+  };
   changePwdType = () => {
     let newState;
     if (this.state.showPassword) {

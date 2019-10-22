@@ -14,7 +14,7 @@ export default StyleSheet.create({
       flexDirection: 'column',
       alignItems: 'center',
       width: Dimensions.get('window').width,
-      height: Dimensions.get('window').height-24,
+      height: Dimensions.get('window').height,
     },
     logo: {
       flexDirection:'column',

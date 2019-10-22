@@ -7,8 +7,6 @@ import {
 import { Button } from 'react-native-elements';
 import AsyncStorage from '@react-native-community/async-storage';
 import styles from './Styles/HomeStyles';
-YellowBox.ignoreWarnings(['Warning: Async Storage has been extracted from react-native core']);
-
 export default class LogOut extends Component {
   static navigationOptions = {
     header: null,
