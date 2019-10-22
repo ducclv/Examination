@@ -23,18 +23,6 @@ import Home from '../Components/Home';
 import LogOut from '../Components/LogOut';
 import {createDrawerNavigator} from 'react-navigation-drawer';
 
-// const RootStack = createStackNavigator(
-//   {
-//     Home: Home,
-//     Setting: Setting,
-//   },
-//   {
-//     navigationOptions: {
-//       header: null,
-//     },
-//   },
-// );
-
 const MyDrawerNavigator = createDrawerNavigator({
   Home: {screen: Home},
   Setting: {screen: Setting},
@@ -42,8 +30,9 @@ const MyDrawerNavigator = createDrawerNavigator({
 },
 {
   initialRouteName:'Home',
-  drawerWidth: 300,
+  drawerWidth: 250,
   drawerPosition:'left',
+  drawerBackgroundColor:'pink',
 });
 
 const AuthStack = createStackNavigator({ SignIn: SignIn, SignUp: SignUp });

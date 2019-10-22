@@ -17,6 +17,9 @@ export default class Home extends Component {
         // drawerLabel: 'Trang' + 'chủ',
         title: "Trang chủ",
     }
+    componentDidMount(){
+        this.props.navigation.closeDrawer();
+    }
     render() {
         return (
             <SafeAreaView >
@@ -26,7 +29,8 @@ export default class Home extends Component {
                         <View style={styles.container}>
                             <View style={styles.head}>
                                 <TouchableOpacity
-                                    onPress={() => this.props.navigation.dispatch(DrawerActions.openDrawer())}
+                                    // onPress={() => this.props.navigation.dispatch(DrawerActions.openDrawer())}
+                                    onPress={() => this.props.navigation.openDrawer()}
                                     style={styles.icon}>
                                     <Text style={styles.txt}>A</Text>
                                 </TouchableOpacity>
