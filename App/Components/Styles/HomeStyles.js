@@ -8,13 +8,13 @@ export default StyleSheet.create({
       alignItems: 'center',
   },
   head: {
-      flex: 6,
+      flex: 5,
       flexDirection: 'column',
       justifyContent: 'flex-start',
       alignItems: 'center',
   },
   body: {
-      flex: 6,
+      flex: 5,
       flexDirection: 'column',
       justifyContent: 'flex-start',
       alignItems: 'center',
@@ -28,7 +28,7 @@ export default StyleSheet.create({
       backgroundColor: 'red',
       borderRadius: 40,
       marginRight: 280,
-      marginTop: 15,
+      marginTop: 30,
   },
   txt: {
       textAlign: 'center',

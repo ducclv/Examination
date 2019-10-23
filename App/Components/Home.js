@@ -26,7 +26,6 @@ export default class Home extends Component {
                 <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
                 <SafeAreaView style={styles.container}>
                     <ScrollView>
-
                         <ImageBackground style={styles.bglogo}
                             source={require('../Images/bg.jpg')}>
                             <View >
