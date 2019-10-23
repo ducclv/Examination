@@ -26,27 +26,14 @@ import {
   Text,
 }
   from 'react-native';
-
-const CustomerComponent = (props) => (
-  <SafeAreaView style={{ flex: 1 }}>
-    <View >
-      <Image source={require('../Images/bg.jpg')} style={{ height: 120, width: 120, borderRadius: 60 }} />
-      {/* <Text>Hello world</Text> */}
-    </View>
-    <ScrollView>
-      <DrawerItems {...props} />
-    </ScrollView>
-  </SafeAreaView>
-)
-
 const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
   Setting: { screen: Setting },
 },
   {
-    // initialRouteName: 'Home',
+    initialRouteName: 'Home',
     drawerWidth: 250,
-    // drawerPosition: 'left',
+    drawerPosition: 'left',
     contentComponent: MenuDrawer,
   });
 

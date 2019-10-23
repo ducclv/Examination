@@ -33,7 +33,7 @@ export default class SignIn extends Component {
   render() {
     return (
       <>
-        <StatusBar barStyle="default" hidden={true} />
+        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true}/>
         <SafeAreaView style={styles.container}>
           <ScrollView style={styles.scrollView}>
             <ImageBackground style={styles.bglogo} source={require('../Images/bg.jpg')}>
