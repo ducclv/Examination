@@ -14,7 +14,6 @@ import SignIn from '../Components/SignIn';
 import SignUp from '../Components/SignUp';
 import Setting from '../Components/Setting';
 import Home from '../Components/Home';
-import LogOut from '../Components/LogOut';
 import AuthLoadingScreen from '../Components/AuthLoading';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import MenuDrawer from '../Components/MenuDrawer';
@@ -43,7 +42,6 @@ const CustomerComponent = (props) => (
 const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
   Setting: { screen: Setting },
-  LogOut: { screen: LogOut },
 },
   {
     // initialRouteName: 'Home',
