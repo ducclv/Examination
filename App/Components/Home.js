@@ -22,11 +22,10 @@ export default class Home extends Component {
     }
     render() {
         return (
-            <SafeAreaView >
-                <ScrollView>
+            <SafeAreaView style={styles.container}>
                     <ImageBackground style={styles.bglogo}
                         source={require('../Images/bg.jpg')}>
-                        <View style={styles.container}>
+                        <View >
                             <View style={styles.head}>
                                 <TouchableOpacity
                                     // onPress={() => this.props.navigation.dispatch(DrawerActions.openDrawer())}
@@ -80,7 +79,6 @@ export default class Home extends Component {
                             </View>
                         </View>
                     </ImageBackground>
-                </ScrollView>
             </SafeAreaView>
 
         );

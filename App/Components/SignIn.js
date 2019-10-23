@@ -9,9 +9,11 @@ import {
   Alert,
   ScrollView,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import styles from './Styles/SignInStyles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import Icons from 'react-native-vector-icons/FontAwesome5';
 import AsyncStorage from '@react-native-community/async-storage';
 console.disableYellowBox = true;
 const userInfo = { username: 'admin', password: 'abc123' };
@@ -30,61 +32,75 @@ export default class SignIn extends Component {
   }
   render() {
     return (
-      <SafeAreaView >
-        <ScrollView style={styles.scrollView}>
-          <ImageBackground style={styles.bglogo} source={require('../Images/bg.jpg')}>
-            <View style={styles.container}>
-              <Image style={styles.logo} source={require('../Images/TD-logo.png')} />
-              <Text style={styles.title}>
-                DỊCH VỤ CÔNG TÂN DÂN
+      <>
+        <StatusBar barStyle="default" hidden={true} />
+        <SafeAreaView style={styles.container}>
+          <ScrollView style={styles.scrollView}>
+            <ImageBackground style={styles.bglogo} source={require('../Images/bg.jpg')}>
+              <View style={styles.container}>
+                <Image style={styles.logo} source={require('../Images/TD-logo.png')} />
+                <Text style={styles.title}>
+                  DỊCH VỤ CÔNG TÂN DÂN
                 </Text>
-              <TextInput
-                style={styles.input}
-                underlineColorAndroid="transparent"
-                placeholder="ID đăng nhập"
-                placeholderTextColor="#808080"
-                autoCapitalize="none"
-                keyboardType="email-address"
-                onChangeText={username => this.setState({ username })}
-                value={this.state.username}
-              />
-
-              <View style={styles.passwordViewContainer}>
-                <TextInput
-                  style={styles.input}
-                  underlineColorAndroid="transparent"
-                  placeholder="Mật khẩu"
-                  placeholderTextColor="#808080"
-                  autoCapitalize="none"
-                  onChangeText={this.handlePassword}
-                  secureTextEntry={this.state.showPassword}
-                  value={this.state.password}
-                />
-                <Icon style={styles.icon}
-                  name={this.state.icEye}
-                  size={23}
-                  onPress={this.changePwdType}
-                />
-              </View>
-              <View style={styles.forgetButton}>
-                <TouchableOpacity>
-                  <Text style={styles.forgetButtonText}>Quên mật khẩu</Text>
+                <View style={styles.row}>
+                  <Icons
+                    style={styles.iconUser}
+                    name="user"
+                    size={23}
+                  />
+                  <TextInput
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    placeholder="ID đăng nhập"
+                    placeholderTextColor="#808080"
+                    autoCapitalize="none"
+                    keyboardType="email-address"
+                    onChangeText={username => this.setState({ username })}
+                    value={this.state.username}
+                  />
+                </View>
+                <View style={styles.row}>
+                  <Icons
+                    style={styles.iconUser}
+                    name="key"
+                    size={23}
+                  />
+                  <TextInput
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    placeholder="Mật khẩu"
+                    placeholderTextColor="#808080"
+                    autoCapitalize="none"
+                    onChangeText={this.handlePassword}
+                    secureTextEntry={this.state.showPassword}
+                    value={this.state.password}
+                  />
+                  <Icon style={styles.icon}
+                    name={this.state.icEye}
+                    size={23}
+                    onPress={this.changePwdType}
+                  />
+                </View>
+                <View style={styles.forgetButton}>
+                  <TouchableOpacity>
+                    <Text style={styles.forgetButtonText}>Quên mật khẩu</Text>
+                  </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.submitButton} onPress={this.login}>
+                  <Text style={styles.submitButtonText}> Đăng nhập </Text>
                 </TouchableOpacity>
+                <View style={styles.signup}>
+                  <Text style={styles.txt}>Bạn chưa có tài khoản?</Text>
+                  <TouchableOpacity
+                    onPress={this.gotoSignUp}>
+                    <Text style={styles.btnSignup}>Đăng ký</Text>
+                  </TouchableOpacity>
+                </View>
               </View>
-              <TouchableOpacity style={styles.submitButton} onPress={this.login}>
-                <Text style={styles.submitButtonText}> Đăng nhập </Text>
-              </TouchableOpacity>
-              <View style={styles.signup}>
-                <Text style={styles.txt}>Bạn chưa có tài khoản?</Text>
-                <TouchableOpacity
-                  onPress={this.gotoSignUp}>
-                  <Text style={styles.btnSignup}>Đăng ký</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-          </ImageBackground>
-        </ScrollView>
-      </SafeAreaView>
+            </ImageBackground>
+          </ScrollView>
+        </SafeAreaView>
+      </>
     );
   }
   login = async () => {
