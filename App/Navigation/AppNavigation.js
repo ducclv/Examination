@@ -5,9 +5,6 @@
  * @format
  * @flow
  */
-import React, { Component } from 'react';
-
-
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import SignIn from '../Components/SignIn';
@@ -17,15 +14,7 @@ import Home from '../Components/Home';
 import AuthLoadingScreen from '../Components/AuthLoading';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import MenuDrawer from '../Components/MenuDrawer';
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  SafeAreaView,
-  Text,
-}
-  from 'react-native';
+
 const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
   Setting: { screen: Setting },
