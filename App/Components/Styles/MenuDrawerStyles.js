@@ -2,9 +2,9 @@ import { StyleSheet, Dimensions } from 'react-native';
 
 export default StyleSheet.create({
     container: {
+        flex:1,
+        flexDirection:'column',
         backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center',
     },
     row: {
         flexDirection: 'row',
@@ -16,11 +16,9 @@ export default StyleSheet.create({
         fontWeight: 'bold',
     },
     infor: {
-        backgroundColor: 'violet',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 250,
-        height: 150,
+        flex:1,
+        justifyContent:'center',
+        alignItems:'center',
     },
     home: {
         width: 250,
@@ -33,6 +31,24 @@ export default StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'flex-start',
-    }
+    },
+    bgw:{
+        width: 250,
+        height: 150,
+    },
+    icon: {
+        width: 40,
+        height: 40,
+        backgroundColor: 'red',
+        borderRadius: 40,
+        marginTop: 60,
+        marginRight: 180,
+    },
+    txt: {
+        textAlign: 'center',
+        fontWeight: "bold",
+        fontSize: 25,
+        color: 'white',
+    },
 }
 );

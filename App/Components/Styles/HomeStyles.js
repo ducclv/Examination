@@ -35,6 +35,7 @@ export default StyleSheet.create({
       fontWeight: "bold",
       fontSize: 25,
       color: 'white',
+      marginLeft: 2,
   },
   bglogo: {
       flex: 1,
