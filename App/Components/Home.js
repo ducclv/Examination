@@ -43,7 +43,10 @@ export default class Home extends Component {
                                 </View>
                                 <View style={styles.body}>
                                     <View style={styles.row}>
-                                        <TouchableOpacity style={styles.iconButtom}>
+                                        <TouchableOpacity
+                                            style={styles.iconButtom}
+                                            onPress={() => { this.props.navigation.navigate('Dvhcc') }}
+                                        >
                                             <Icon name="bank" size={20} color={'blue'} />
                                         </TouchableOpacity>
                                         <TouchableOpacity
@@ -52,10 +55,16 @@ export default class Home extends Component {
                                         >
                                             <Icons name="mail-bulk" size={22} color={'green'} />
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.iconButtom}>
+                                        <TouchableOpacity
+                                            style={styles.iconButtom}
+                                            onPress={() => { this.props.navigation.navigate('Dulich') }}
+                                        >
                                             <Icons name="umbrella-beach" size={22} color={'green'} />
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.iconButtom}>
+                                        <TouchableOpacity
+                                            style={styles.iconButtom}
+                                            onPress={() => { this.props.navigation.navigate('Ttcb') }}
+                                        >
                                             <Icon name="warning" size={24} color={'red'} />
                                         </TouchableOpacity>
                                     </View>
@@ -66,13 +75,22 @@ export default class Home extends Component {
                                         <Text style={styles.titleButtom}> Thông tin cảnh báo</Text>
                                     </View>
                                     <View style={styles.row}>
-                                        <TouchableOpacity style={styles.iconButtom}>
+                                        <TouchableOpacity
+                                            style={styles.iconButtom}
+                                            onPress={() => { this.props.navigation.navigate('Thongke') }}
+                                        >
                                             <Icons name="chart-pie" size={20} color={'red'} />
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.iconButtom}>
+                                        <TouchableOpacity
+                                            style={styles.iconButtom}
+                                            onPress={() => { this.props.navigation.navigate('Yte') }}
+                                        >
                                             <Icons name="hospital-alt" size={22} color={'green'} />
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.iconButtom}>
+                                        <TouchableOpacity 
+                                        style={styles.iconButtom}
+                                        onPress={()=>{this.props.navigation.navigate('Gctt')}}
+                                        >
                                             <Icons name="chart-line" size={22} color={'green'} />
                                         </TouchableOpacity>
                                     </View>

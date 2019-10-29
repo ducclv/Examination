@@ -12,7 +12,6 @@ import AuthLoadingScreen from '../Components/AuthLoading';
 import MenuDrawer from '../Components/MenuDrawer';
 import SignIn from '../Components/SignIn';
 import SignUp from '../Components/SignUp';
-import Setting from '../Components/Setting';
 import Home from '../Components/Home';
 import Dvhcc from '../Components/Dvhcc';
 import Paht from '../Components/Paht';
@@ -20,15 +19,16 @@ import Dulich from '../Components/Dulich';
 import Ttcb from '../Components/Ttcb';
 import Thongke from '../Components/Thongke';
 import Yte from '../Components/Yte';
+import Gctt from '../Components/Gctt';
 const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
-  // Setting: { screen: Setting },
-  // Dvhcc: {screen: Dvhcc},
+  Dvhcc: { screen: Dvhcc },
   Paht: { screen: Paht },
-  // Dulich:{screen: Dulich},
-  // Ttcb: { screen: Ttcb },
-  // Thongke: { screen: Thongke },
-  // Yte: { screen: Yte },
+  Dulich: { screen: Dulich },
+  Ttcb: { screen: Ttcb },
+  Thongke: { screen: Thongke },
+  Yte: { screen: Yte },
+  Gctt: { screen: Gctt }
 },
   {
     initialRouteName: 'Home',
