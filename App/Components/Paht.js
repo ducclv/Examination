@@ -3,22 +3,27 @@ import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity, StatusBar, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import BasicFlatList from './BasicFlatList';
+import flatListData from '../Data/FlatListData';
+import flatListDataTest from '../Data/FlatListDataTest';
 export default class Paht extends Component {
     constructor() {
         super();
         this.state = {
-            selectedIndex: 0
+            selectedIndex: 0,
+            data: flatListData,
         }
         this.updateIndex = this.updateIndex.bind(this);
     }
     updateIndex = (selectedIndex) => {
         this.setState({ selectedIndex });
-    }
-    handleView = (selectedIndex) => {
         if (selectedIndex == 0) {
-            <BasicFlatList />
+            this.state.data = flatListData;
+            console.log(this.state.data);
         }
-
+        else if (selectedIndex == 1) {
+            this.state.data = flatListDataTest;
+        }
+        // Xử lý các trường hợp khác
     }
     render() {
         const buttons = ['Mới nhất', 'Phổ biến', 'Đang xử lý', 'Đã xử lý'];
@@ -57,7 +62,8 @@ export default class Paht extends Component {
                         buttons={buttons}
                         containerStyle={{ height: 40 }}
                     />
-                    <BasicFlatList />
+                    
+                    <BasicFlatList data={this.state.data} />
                 </SafeAreaView>
             </>
         );

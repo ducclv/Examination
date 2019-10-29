@@ -23,11 +23,11 @@ export default class MenuDrawer extends Component {
                             source={require('../Images/bgw.png')}
                             style={styles.bgw}>
                             <View style={styles.infor}>
-                            <TouchableOpacity
-                                onPress={() => this.props.navigation.closeDrawer()}
-                                style={styles.icon}>
-                                <Text style={styles.txt}>A</Text>
-                            </TouchableOpacity>
+                                <TouchableOpacity
+                                    onPress={() => this.props.navigation.closeDrawer()}
+                                    style={styles.icon}>
+                                    <Text style={styles.txt}>A</Text>
+                                </TouchableOpacity>
                             </View>
                         </ImageBackground>
 
