@@ -2,16 +2,23 @@ import { Header, ButtonGroup } from 'react-native-elements';
 import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity, StatusBar, SafeAreaView, View, Text, StyleSheet } from 'react-native';
+import BasicFlatList from './BasicFlatList';
 export default class Paht extends Component {
     constructor() {
-        super()
+        super();
         this.state = {
             selectedIndex: 0
         }
         this.updateIndex = this.updateIndex.bind(this);
     }
-    updateIndex(selectedIndex) {
+    updateIndex = (selectedIndex) => {
         this.setState({ selectedIndex });
+    }
+    handleView = (selectedIndex) => {
+        if (selectedIndex == 0) {
+            <BasicFlatList />
+        }
+
     }
     render() {
         const buttons = ['Mới nhất', 'Phổ biến', 'Đang xử lý', 'Đã xử lý'];
@@ -24,7 +31,7 @@ export default class Paht extends Component {
                         headerTitle="Header"
                         leftComponent={
                             <TouchableOpacity
-                                onPress={() => {this.props.navigation.openDrawer()}}>
+                                onPress={() => { this.props.navigation.openDrawer() }}>
                                 <Icon name="bars" type="Ionicons" size={26} color="black" />
                             </TouchableOpacity>
                         }
@@ -41,7 +48,7 @@ export default class Paht extends Component {
                         }}
                     />
                     <View>
-                        <Text style={{marginLeft:10, marginTop:5}}>Danh sách phản ánh</Text>
+                        <Text style={{ marginLeft: 10, marginTop: 5 }}>Danh sách phản ánh</Text>
                     </View>
 
                     <ButtonGroup
@@ -49,7 +56,8 @@ export default class Paht extends Component {
                         selectedIndex={selectedIndex}
                         buttons={buttons}
                         containerStyle={{ height: 40 }}
-                    />                    
+                    />
+                    <BasicFlatList />
                 </SafeAreaView>
             </>
         );
@@ -57,8 +65,8 @@ export default class Paht extends Component {
 }
 
 
-const styles=StyleSheet.create({
-    container:{
-        flex:1,
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
     }
 });
