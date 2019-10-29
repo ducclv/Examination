@@ -28,7 +28,7 @@ export default class Home extends Component {
                     <ScrollView>
                         <ImageBackground style={styles.bglogo}
                             source={require('../Images/bg.jpg')}>
-                            <View >
+                            <View>
                                 <View style={styles.head}>
                                     <TouchableOpacity
                                         onPress={() => this.props.navigation.openDrawer()}
@@ -46,7 +46,10 @@ export default class Home extends Component {
                                         <TouchableOpacity style={styles.iconButtom}>
                                             <Icon name="bank" size={20} color={'blue'} />
                                         </TouchableOpacity>
-                                        <TouchableOpacity style={styles.iconButtom}>
+                                        <TouchableOpacity
+                                            style={styles.iconButtom}
+                                            onPress={() => { this.props.navigation.navigate('Paht') }}
+                                        >
                                             <Icons name="mail-bulk" size={22} color={'green'} />
                                         </TouchableOpacity>
                                         <TouchableOpacity style={styles.iconButtom}>

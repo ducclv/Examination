@@ -26,12 +26,6 @@ export default StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'flex-start',
     },
-    setting: {
-        width: 250,
-        height: 50,
-        justifyContent: 'center',
-        alignItems: 'flex-start',
-    },
     bgw:{
         width: 250,
         height: 150,

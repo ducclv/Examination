@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import styles from './Styles/MenuDrawerStyles';
 import Icons from 'react-native-vector-icons/FontAwesome5';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import AsyncStorage from '@react-native-community/async-storage';
 
 export default class MenuDrawer extends Component {
@@ -36,13 +37,37 @@ export default class MenuDrawer extends Component {
                                 {this.gotoScreen('Home', 'Trang chủ')}
                             </View>
                         </View>
-                        <View style={styles.setting}>
+                        <View style={styles.home}>
                             <View style={styles.row}>
-                                <Icons name="key" size={26} style={{ color: 'gray' }} />
-                                {this.gotoScreen('Setting', 'Test')}
+                                <Icons name="user-friends" size={26} style={{ color: 'gray' }} />
+                                {this.gotoScreen('Dvhcc', 'Dịch vụ hành chính công')}
                             </View>
                         </View>
-                        <View style={styles.setting}>
+                        <View style={styles.home}>
+                            <View style={styles.row}>
+                                <Icons name="mail-bulk" size={26} style={{ color: 'gray' }} />
+                                {this.gotoScreen('Paht', 'Phản ánh hiện trường')}
+                            </View>
+                        </View>
+                        <View style={styles.home}>
+                            <View style={styles.row}>
+                                <Icons name="umbrella-beach" size={25} style={{ color: 'gray' }} />
+                                {this.gotoScreen('Dulich', 'Du lịch')}
+                            </View>
+                        </View>
+                        <View style={styles.home}>
+                            <View style={styles.row}>
+                                <Icon name="warning" size={26} style={{ color: 'gray' }} />
+                                {this.gotoScreen('Ttcb', 'Thông tin cảnh báo')}
+                            </View>
+                        </View>
+                        <View style={styles.home}>
+                            <View style={styles.row}>
+                                <Icons name="hospital-alt" size={24} style={{ color: 'gray' }} />
+                                {this.gotoScreen('Yte', 'Y tế')}
+                            </View>
+                        </View>
+                        <View style={styles.home}>
                             <View style={styles.row}>
                                 <Icons name="sign-out-alt" size={26} style={{ color: 'gray' }} />
                                 <TouchableOpacity
