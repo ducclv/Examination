@@ -15,7 +15,7 @@ import SignUp from '../Components/SignUp';
 import Home from '../Components/Home';
 import Dvhcc from '../Components/Dvhcc';
 import Paht from '../Components/Paht';
-import Dulich from '../Components/Dulich';
+import Travel from '../Components/Travel';
 import Ttcb from '../Components/Ttcb';
 import Thongke from '../Components/Thongke';
 import Yte from '../Components/Yte';
@@ -24,7 +24,7 @@ const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
   Dvhcc: { screen: Dvhcc },
   Paht: { screen: Paht },
-  Dulich: { screen: Dulich },
+  Travel: { screen: Travel },
   Ttcb: { screen: Ttcb },
   Thongke: { screen: Thongke },
   Yte: { screen: Yte },

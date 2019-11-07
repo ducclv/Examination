@@ -13,10 +13,16 @@ export default class Ttcb extends Component {
                         leftComponent={
                             <TouchableOpacity
                                 onPress={() => { this.props.navigation.openDrawer() }}>
-                                <Icon name="bars" type="Ionicons" size={27} color="black" style={{ marginLeft: 5 }} />
+                                <Icon name="bars" type="Ionicons" size={24} color="black" style={{ marginLeft: 5 }} />
                             </TouchableOpacity>
                         }
                         centerComponent={{ text: 'Thông tin cảnh báo', style: { fontWeight: 'bold', fontSize: 18 } }}
+                        rightComponent={
+                            <TouchableOpacity
+                                onPress={() => { this.props.navigation.navigate('Home') }}>
+                                <Icon name="home" type="AntDesign" size={24} color="black" />
+                            </TouchableOpacity>
+                        }
                         containerStyle={{
                             backgroundColor: 'white',
                             justifyContent: 'space-around',

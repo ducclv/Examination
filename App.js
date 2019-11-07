@@ -1,68 +1,71 @@
 import React, { Component } from 'react';
-import { AppRegistry, FlatList, StyleSheet, Text, View,Image } from 'react-native';
-import flatListData from './App/Data/FlatListData';
+import { TouchableOpacity, Text } from 'react-native';
+import axios from 'react-native-axios';
+import { parseString } from 'react-native-xml2js';
+const userInfo = { username: 'test1234', password: '1' };
+export default class App extends Component {
+  state = {
+    CMND: ''
+  }
+  componentDidMount(){
+    this.test();
+  }
+  render() {
+    return (
+      <>
+        <TouchableOpacity
+          style={{ backgroundColor: 'red', alignItems: 'center', flex: 1, justifyContent: 'center' }}
+          onPress={() => console.log(this.state.CMND)}
+        >
+          <Text>Test API</Text>
+        </TouchableOpacity>
+      </>
+    );
+  }
 
-class FlatListItem extends Component {
-    render() {          
-        return (        
-            <View style={{
-                flex: 1,
-                flexDirection:'column',                                
-            }}>            
-                <View style={{
-                        flex: 1,
-                        flexDirection:'row',
-                        backgroundColor: this.props.index % 2 == 0 ? 'mediumseagreen': 'tomato'                
-                }}>            
-                    <Image 
-                        source={{uri: this.props.item.imageUrl}}
-                        style={{width: 100, height: 100, margin: 5}}
-                    >
 
-                    </Image>
-                    <View style={{
-                            flex: 1,
-                            flexDirection:'column',   
-                            height: 100                 
-                        }}>            
-                            <Text style={styles.flatListItem}>{this.props.item.name}</Text>
-                            <Text style={styles.flatListItem}>{this.props.item.foodDescription}</Text>
-                    </View>              
-                </View>
-                <View style={{
-                    height: 10,
-                    backgroundColor:'white'                            
-                }}>
-            
-                </View>
-          </View>
-        );
-    }
+  test = async () => {
+
+    const xmlReqBody = `<soap:Envelope 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+    xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"> <soap:Body> <Login 
+    xmlns="http://schemas.microsoft.com/sharepoint/soap/"> <loginName>`
+      + userInfo.username //username
+      +
+      `</loginName> <pwd>`
+      + userInfo.password +//password
+      `</pwd> </Login> </soap:Body> </soap:Envelope>`
+
+    var a = await axios('https://dvchopquy.tandan.com.vn/_layouts/tandan/dvc/DVCServiceMobile.asmx', {
+      method: 'POST',
+      headers: {
+        "Content-Type": 'text/xml; charset="utf-8"',
+        "Accept": 'application/json',
+      },
+      data: xmlReqBody,
+      dataType: "xml",
+    })
+      .then(function (response) {
+        var xml = response.data
+        parseString(xml, function (err, result) {
+          var t = result['soap:Envelope']
+          var t1 = t['soap:Body']
+          var t2 = t1[0].LoginResponse[0].LoginResult[0]
+          xml = t2
+        });
+        return xml;
+      })
+      .then((data) => {
+        var data1 = JSON.parse(data)
+        return data1
+
+      })
+
+    // console.log(a.Data.UserInfo.CMND);
+    if(a.Status =="OK") console.log("succes")
+    else console.log("fail")
+    this.state.CMND = a.Data.UserInfo.CMND;
+  }
 }
-const styles = StyleSheet.create({
-    flatListItem: {
-        color: 'white',
-        padding: 10,
-        fontSize: 16,  
-    }
-});
 
-export default class BasicFlatList extends Component {
-    render() {
-      return (
-        <View style={{flex: 1, marginLeft: 20, marginRight: 20}}>
-            <FlatList 
-                data={flatListData}
-                renderItem={({item, index})=>{
-                    //console.log(`Item = ${JSON.stringify(item)}, index = ${index}`);
-                    return (
-                    <FlatListItem item={item} index={index}>
-                    </FlatListItem>);
-                }}
-                >
-
-            </FlatList>
-        </View>
-      );
-    }
-}

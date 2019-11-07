@@ -44,5 +44,45 @@ export default StyleSheet.create({
         fontSize: 25,
         color: 'white',
     },
+    modal: {
+        backgroundColor: 'white',
+    },
+    titleModal: {
+        textAlign: 'center',
+        fontWeight: "bold",
+        fontSize: 20,
+        margin: 20,
+    },
+    txtModal:{
+        color: 'gray',
+        marginLeft: 20,
+        fontSize: 15,
+    },
+    txtInforModal:{
+        fontSize:14,
+        marginLeft: 20,
+        margin: 5
+    },
+    closeModal:{
+        margin: 20,
+    },
+    txtCloseModal:{
+        color: 'blue',
+        fontWeight:'bold',
+        fontSize: 18,
+    },
+    rowModal: {
+        flexDirection: 'row',
+        backgroundColor:'white'
+    },
+    txtSingOutModal:{
+        color: 'red',
+        fontWeight:'bold',
+        fontSize: 18,
+    },
+    SignOutModal:{
+        marginLeft: 140,
+        marginTop: 20,
+    },
 }
 );

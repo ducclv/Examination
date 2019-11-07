@@ -11,8 +11,8 @@ import {
     Image,
     Dimensions,
 } from 'react-native';
+import styles from './Styles/DvhccStyles';
 export default class Dvhcc extends Component {
-
     render() {
         return (
             <>
@@ -26,7 +26,7 @@ export default class Dvhcc extends Component {
                                 <Icon name="bars" type="Ionicons" size={25} color="white" style={{ marginLeft: 5 }} />
                             </TouchableOpacity>
                         }
-                        centerComponent={{ text: 'Dịch vụ hành chính công', style: { fontWeight: 'bold', fontSize: 18,color: 'white' } }}
+                        centerComponent={{ text: 'Dịch vụ hành chính công', style: { fontWeight: 'bold', fontSize: 18, color: 'white' } }}
                         rightComponent={
                             <TouchableOpacity
                                 onPress={() => { this.props.navigation.navigate('Home') }}>
@@ -35,62 +35,58 @@ export default class Dvhcc extends Component {
                         }
                         containerStyle={styles.containerstyle}
                     />
+
                     <Image style={styles.img} source={require('../Images/dvhcc.jpg')} />
                     <View style={styles.row}>
                         <TouchableOpacity
                             style={styles.tracuu}
                             onPress={() => { }}
                         >
-                            <Icon name='search' size={28} />
-                            <Text>Tra cu ho so</Text>
+                            <Icon name='search' size={28} color={'gray'} />
+                            <Text style={styles.txt}>Tra cứu hồ sơ</Text>
                         </TouchableOpacity>
-
                         <TouchableOpacity
                             style={styles.tracuu}
                             onPress={() => { }}
                         >
-                            <Icon name='tasks' size={28} />
-                            <Text>Tra cu ho so</Text>
+                            <Icon name='tasks' size={28} color={'gray'} />
+                            <Text style={styles.txt}>Hồ sơ theo dõi</Text>
                         </TouchableOpacity>
                     </View>
-
-
-
-
-
+                    <View style={styles.row}>
+                        <TouchableOpacity
+                            style={styles.kiennghi}
+                            onPress={() => { }}
+                        >
+                            <Icon name='book' size={28} color={'gray'} />
+                            <Text style={styles.txt}>Tra cứu thủ tục</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.kiennghi}
+                            onPress={() => { }}
+                        >
+                            <Icon name='user-edit' size={28} color={'gray'} />
+                            <Text style={styles.txt}>Phản ánh kiến nghị </Text>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={styles.row}>
+                        <TouchableOpacity
+                            style={styles.kiennghi}
+                            onPress={() => { }}
+                        >
+                            <Icon name='briefcase' size={28} color={'gray'} />
+                            <Text style={styles.txt}>Quản lý hồ sơ</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                            style={styles.kiennghi}
+                            onPress={() => { }}
+                        >
+                            <Icon name='user-check' size={28} color={'gray'} />
+                            <Text style={styles.txt}>Đánh giá hài lòng</Text>
+                        </TouchableOpacity>
+                    </View>
                 </SafeAreaView>
             </>
         );
     }
 }
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'column',
-        backgroundColor: '#E7DCDC',
-        alignItems: 'center',
-    },
-    img: {
-        width: Dimensions.get('window').width,
-        height: 200,
-    },
-    containerstyle: {
-        backgroundColor: 'gray',
-        justifyContent: 'space-around',
-    },
-    tracuu: {
-        backgroundColor: 'white',
-        alignItems: 'center',
-        justifyContent: 'center',
-        width: 120,
-        height: 120,
-        marginRight: 10,
-        marginLeft: 10,
-        marginTop: -30,
-    },
-    row: {
-        flexDirection: 'row',
-    }
-
-});
