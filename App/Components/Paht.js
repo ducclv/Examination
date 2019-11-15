@@ -3,22 +3,24 @@ import React, { Component } from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { TouchableOpacity, StatusBar, SafeAreaView, View, Text, StyleSheet } from 'react-native';
 import BasicFlatList from './BasicFlatList';
+import List from './DVHCC_FlatList';
 import flatListData from '../Data/FlatListData';
 import flatListDataTest from '../Data/FlatListDataTest';
 export default class Paht extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             selectedIndex: 0,
-            data: flatListData,
+            data: [],
         }
+        this.state.data = flatListData;
         this.updateIndex = this.updateIndex.bind(this);
     }
     updateIndex = (selectedIndex) => {
         this.setState({ selectedIndex });
         if (selectedIndex == 0) {
             this.state.data = flatListData;
-            console.log(this.state.data);
+            console.log(typeof this.state.data);
         }
         else if (selectedIndex == 1) {
             this.state.data = flatListDataTest;
@@ -62,7 +64,8 @@ export default class Paht extends Component {
                         buttons={buttons}
                         containerStyle={{ height: 40 }}
                     />
-                    <BasicFlatList data={this.state.data} />
+                    <BasicFlatList data={this.state.data} {...this.props}/>
+                    {/* <BasicFlatList data={this.state.data} /> */}
                 </SafeAreaView>
             </>
         );

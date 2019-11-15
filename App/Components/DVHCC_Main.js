@@ -11,8 +11,8 @@ import {
     Image,
     Dimensions,
 } from 'react-native';
-import styles from './Styles/DvhccStyles';
-export default class Dvhcc extends Component {
+import styles from './Styles/DVHCC_MainStyles';
+export default class DVHCC_Main extends Component {
     render() {
         return (
             <>
@@ -40,7 +40,7 @@ export default class Dvhcc extends Component {
                     <View style={styles.row}>
                         <TouchableOpacity
                             style={styles.tracuu}
-                            onPress={() => { }}
+                            onPress={() => {this.props.navigation.navigate('DVHCC_Search') }}
                         >
                             <Icon name='search' size={28} color={'gray'} />
                             <Text style={styles.txt}>Tra cứu hồ sơ</Text>

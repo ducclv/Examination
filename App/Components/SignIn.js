@@ -189,7 +189,6 @@ export default class SignIn extends Component {
         var data1 = JSON.parse(data)
         return data1
       })
-      // console.log(a.Data.UserInfo.CMND)
     if (
       a.Status == "OK"
     ) {

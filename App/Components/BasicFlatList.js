@@ -13,11 +13,7 @@ class FlatListItem extends Component {
                     flexDirection: 'row',
                     backgroundColor: this.props.index % 2 == 0 ? 'mediumseagreen' : 'tomato'
                 }}>
-                    <Image
-                        source={{ uri: this.props.item.imageUrl }}
-                        style={{ width: 100, height: 100, margin: 5 }}
-                    >
-                    </Image>
+                   
                     <View style={{
                         flex: 1,
                         flexDirection: 'column',
@@ -46,7 +42,9 @@ const styles = StyleSheet.create({
 });
 
 export default class BasicFlatList extends Component {
-
+componentDidMount(){
+    console.log(this.props.code)
+}
     render() {
         const data = this.props.data
         return (
@@ -54,7 +52,7 @@ export default class BasicFlatList extends Component {
                 <FlatList
                     data={data}
                     renderItem={({ item, index }) => {
-                        console.log(`Item = ${JSON.stringify(item)}, index = ${index}`+'\n');
+                        // console.log(`Item = ${JSON.stringify(item)}, index = ${index}`+'\n');
                         return (
                             <FlatListItem
                                 item={item}

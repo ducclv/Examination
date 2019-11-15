@@ -18,19 +18,20 @@ import styles from './Styles/HomeStyles';
 import Modal from 'react-native-modal';
 
 export default class Home extends Component {
+
     static navigationOptions = {
         title: "Trang chủ",
     }
-    componentDidMount() {
-        this.props.navigation.closeDrawer();
-    }
-  
     state = {
-        isModalVisible: false
+        isModalVisible: false,
+        LoginName: this.props.navigation.getParam('LoginName'),
+        UserName: this.props.navigation.getParam('UserName'),
+        CMND: this.props.navigation.getParam('CMND'),
+        PhoneNumber: this.props.navigation.getParam('PhoneNumber'),
+        Email: this.props.navigation.getParam('Email'),
+        DiaChi: this.props.navigation.getParam('DiaChi'),
     };
-
     render() {
-        // const { navigation } = this.props;
         return (
             <>
                 <StatusBar barStyle="default" backgroundColor="transparent" translucent={true} />
@@ -93,7 +94,7 @@ export default class Home extends Component {
                                     <View style={styles.row}>
                                         <TouchableOpacity
                                             style={styles.iconButtom}
-                                            onPress={() => { this.props.navigation.navigate('Dvhcc') }}
+                                            onPress={() => { this.props.navigation.navigate('DVHCC_Main') }}
                                         >
                                             <Icon name="bank" size={20} color={'blue'} />
                                         </TouchableOpacity>
@@ -179,9 +180,13 @@ export default class Home extends Component {
         await AsyncStorage.clear();
         this.props.navigation.navigate('Auth');
     };
-    icon =  () => {
-        var a = this.props.navigation.getParam('UserName')
-        console.log(a)
+    infor = () => {
+        LoginName = this.props.navigation.getParam('LoginName'),
+            UserName = this.props.navigation.getParam('UserName'),
+            CMND = this.props.navigation.getParam('CMND'),
+            PhoneNumber = this.props.navigation.getParam('PhoneNumber'),
+            Email = this.props.navigation.getParam('Email'),
+            DiaChi = this.props.navigation.getParam('DiaChi')
     }
 }
 

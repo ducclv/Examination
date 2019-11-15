@@ -25,7 +25,6 @@ export default class MenuDrawer extends Component {
                             style={styles.bgw}>
                             <View style={styles.infor}>
                                 <TouchableOpacity
-                                    onPress={() => this.props.navigation.closeDrawer()}
                                     onPress={() => this.toggleModal()}
                                     style={styles.icon}>
                                     <Text style={styles.txt}>Đ</Text>
@@ -149,14 +148,8 @@ export default class MenuDrawer extends Component {
         isModalVisible: false
     }
     toggleModal = () => {
-        this.props.navigation.closeDrawer();
+        // this.props.navigation.closeDrawer();
         this.setState({ isModalVisible: !this.state.isModalVisible });
     }
-    icon = () => {
-        let a = this.props.navigation.getParam('UserName')
-        console.log(a.length)
-        // for (let i = 0; i < a.length; a++) {
-
-        // }
-    }
+  
 }

@@ -13,7 +13,8 @@ import MenuDrawer from '../Components/MenuDrawer';
 import SignIn from '../Components/SignIn';
 import SignUp from '../Components/SignUp';
 import Home from '../Components/Home';
-import Dvhcc from '../Components/Dvhcc';
+import DVHCC_Main from '../Components/DVHCC_Main';
+import DVHCC_Search from '../Components/DVHCC_Search';
 import Paht from '../Components/Paht';
 import Travel from '../Components/Travel';
 import Ttcb from '../Components/Ttcb';
@@ -22,13 +23,14 @@ import Yte from '../Components/Yte';
 import Gctt from '../Components/Gctt';
 const MyDrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
-  Dvhcc: { screen: Dvhcc },
+  DVHCC_Main: { screen: DVHCC_Main },
   Paht: { screen: Paht },
   Travel: { screen: Travel },
   Ttcb: { screen: Ttcb },
   Thongke: { screen: Thongke },
   Yte: { screen: Yte },
-  Gctt: { screen: Gctt }
+  Gctt: { screen: Gctt },
+  DVHCC_Search: {screen: DVHCC_Search}
 },
   {
     initialRouteName: 'Home',
@@ -51,4 +53,3 @@ export default createAppContainer(
     },
   ),
 );
-
