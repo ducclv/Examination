@@ -14,19 +14,24 @@ import styles from './Styles/DVHCC_SearchStyles';
 import axios from 'react-native-axios';
 import { parseString } from 'react-native-xml2js';
 import DVHCC_FlatList from './DVHCC_FlatList';
-
+import { ButtonGroup } from 'react-native-elements';
 export default class DVHCC_Search extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            selectedIndex: 0,
             code: '',
             data: [],
         }
+        this.updateIndex = this.updateIndex.bind(this);
     }
-    componentDidMount() {
+    updateIndex = (selectedIndex) => {
+        this.setState({ selectedIndex });
         this.checkData()
     }
     render() {
+        const buttons = ['Kìm kiếm'];
+        const selectedIndex = this.state.selectedIndex;
         return (
             <SafeAreaView style={styles.container}>
                 <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
@@ -42,27 +47,33 @@ export default class DVHCC_Search extends Component {
                     containerStyle={styles.containerstyle}
                 />
                 <TextInput
-                        style={styles.input}
-                        underlineColorAndroid="transparent"
-                        placeholder="Nhập mã hồ sơ"
-                        placeholderTextColor="#808080"
-                        autoCapitalize="none"
-                        onChangeText={(code) => { this.setState({ code }) }}
-                        value={this.state.code}
-                    />
+                    style={styles.input}
+                    underlineColorAndroid="transparent"
+                    placeholder="Nhập mã hồ sơ"
+                    placeholderTextColor="#808080"
+                    autoCapitalize="none"
+                    onChangeText={(code) => { this.setState({ code }) }}
+                    value={this.state.code}
+                />
                 <View style={styles.row}></View>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     style={styles.search}
                     onPress={() => this.checkData()}
                 >
                     <Text>Search</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
+                <ButtonGroup
+                    selectedIndex={selectedIndex}
+                    onPress={this.updateIndex}
+                    buttons={buttons}
+                    containerStyle={{ height: 40, width: 100, alignItems: 'center' }}
+                />
+
                 <DVHCC_FlatList data={this.state.data} />
             </SafeAreaView>
         );
     }
     checkData = async () => {// check data with API
-
         const xmlReqBody = `<soap:Envelope 
             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
             xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
@@ -101,7 +112,7 @@ export default class DVHCC_Search extends Component {
                 return data1
             })
         this.state.data = a.DSHoSo;
-        // console.log(this.state.data);
+        console.log(this.state.code);
         return a.DSHoSo;
     }
 }

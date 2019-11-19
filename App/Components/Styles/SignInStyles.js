@@ -56,8 +56,14 @@ export default StyleSheet.create({
     margin: 15,
     height: 40,
     width: 300,
-    borderBottomWidth: 1,
-    borderBottomColor: 'gray',
+  },
+  line:{
+    flexDirection:'row',
+    height:1,
+    width: 350,
+    backgroundColor:'white',
+    opacity: 0.2,
+    marginTop: -10,
   },
   submitButton: {
     backgroundColor: 'white',

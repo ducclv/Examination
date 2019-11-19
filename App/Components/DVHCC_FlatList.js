@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { FlatList, StyleSheet, Text, View, Image } from 'react-native';
+import { FlatList, StyleSheet, Text, View, Image, TouchableOpacity } from 'react-native';
 import axios from 'react-native-axios';
 import { parseString } from 'react-native-xml2js';
-
 import Icon from 'react-native-vector-icons/FontAwesome';
+import styles from './Styles/DVHCC_FlatListStyles';
 class FlatListItem extends Component {
     render() {
         return (
@@ -15,7 +15,7 @@ class FlatListItem extends Component {
                             <Text style={styles.title}>{this.props.item.MaHoSo}</Text>
                             <Text style={styles.content}>{this.props.item.TenHoSo}</Text>
                             <View style={styles.row}>
-                                <Icon name='user' size={20} color={'gray'} style={{ marginTop: 8, opacity: 0.2,paddingLeft: 10 }} />
+                                <Icon name='user' size={20} color={'gray'} style={{ marginTop: 8, opacity: 0.2, paddingLeft: 10 }} />
                                 <Text style={styles.infor}>{this.props.item.ChuHoSo}</Text>
                                 <Icon name='calendar' size={20} color={'gray'} style={{ marginTop: 8, opacity: 0.2, paddingLeft: 20 }} />
                                 <Text style={styles.infor}>{this.props.item.NgayTiepNhan}</Text>
@@ -23,36 +23,18 @@ class FlatListItem extends Component {
                         </View>
                     </View>
                 </View>
+                <TouchableOpacity
+                    onPress={() => { console.log(this.props.item) }}
+                >
+                    <Text>Test</Text>
+                </TouchableOpacity>
                 <View style={{ height: 1, backgroundColor: 'gray' }}>
                 </View>
             </>
         );
     }
 }
-const styles = StyleSheet.create({
-    container: {
-        height: 150,
-        justifyContent: 'center',
-    },
-    row: {
-        flexDirection: 'row',
-    },
-    title: {
-        paddingLeft: 10,
-        paddingBottom: 15,
-        fontWeight: 'bold',
-        fontSize: 22,
-    },
-    content: {
-        fontSize: 14,
-        paddingLeft: 10,
-    },
-    infor: {
-        fontSize: 14,
-        padding: 10,
-        color: 'gray'
-    }
-});
+
 
 export default class BasicFlatList extends Component {
     constructor(props) {

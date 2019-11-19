@@ -13,7 +13,7 @@ export default class Paht extends Component {
             selectedIndex: 0,
             data: [],
         }
-        this.state.data = flatListData;
+        // this.state.data = flatListData;
         this.updateIndex = this.updateIndex.bind(this);
     }
     updateIndex = (selectedIndex) => {
@@ -28,7 +28,8 @@ export default class Paht extends Component {
         // Xử lý các trường hợp khác
     }
     render() {
-        const buttons = ['Mới nhất', 'Phổ biến', 'Đang xử lý', 'Đã xử lý'];
+        // const buttons = ['Mới nhất', 'Phổ biến', 'Đang xử lý', 'Đã xử lý'];
+        const buttons = ['Mới nhất'];
         const { selectedIndex } = this.state;
         return (
             <>

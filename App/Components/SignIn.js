@@ -64,6 +64,7 @@ export default class SignIn extends Component {
                     value={this.state.username}
                   />
                 </View>
+                <View style={styles.line}></View>
                 <View style={styles.row}>
                   <Icons
                     style={styles.iconUser}
@@ -85,7 +86,8 @@ export default class SignIn extends Component {
                     size={23}
                     onPress={this.changePwdType}
                   />
-                </View>
+                  </View>
+                <View style={styles.line}></View>
                 <View style={styles.forgetButton}>
                   <TouchableOpacity>
                     <Text style={styles.forgetButtonText}>Quên mật khẩu</Text>
