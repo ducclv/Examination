@@ -23,9 +23,7 @@ console.disableYellowBox = true;
 const userInfo = { username: 'admin', password: 'abc123' };//test data
 
 export default class SignIn extends Component {
-  static navigationOptions = {
-    header: null,
-  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -38,75 +36,73 @@ export default class SignIn extends Component {
   render() {
     return (
       <>
-        <StatusBar barStyle="dark-content" backgroundColor="transparent" translucent={true} />
-        <SafeAreaView style={styles.container}>
-          <ScrollView style={styles.scrollView}>
-            <ImageBackground style={styles.bglogo} source={require('../Images/bg.jpg')}>
-              <View style={styles.container}>
-                <Image style={styles.logo} source={require('../Images/TD-logo.png')} />
-                <Text style={styles.title}>
-                  DỊCH VỤ CÔNG TÂN DÂN
+        <View style={styles.container}>
+          <StatusBar barStyle="dark-content"
+            backgroundColor="transparent"
+            translucent={true} />
+          <ImageBackground style={styles.bglogo}
+            source={require('../Images/bg.jpg')}>
+            <View style={styles.container}>
+              <Text style={styles.title}>
+                ĐĂNG KÝ THI HỌC KỲ
                 </Text>
-                <View style={styles.row}>
-                  <Icons
-                    style={styles.iconUser}
-                    name="user"
-                    size={23}
-                  />
-                  <TextInput
-                    style={styles.input}
-                    underlineColorAndroid="transparent"
-                    placeholder="ID đăng nhập"
-                    placeholderTextColor="#808080"
-                    autoCapitalize="none"
-                    keyboardType="email-address"
-                    onChangeText={username => this.setState({ username })}
-                    value={this.state.username}
-                  />
-                </View>
-                <View style={styles.line}></View>
-                <View style={styles.row}>
-                  <Icons
-                    style={styles.iconUser}
-                    name="key"
-                    size={23}
-                  />
-                  <TextInput
-                    style={styles.input}
-                    underlineColorAndroid="transparent"
-                    placeholder="Mật khẩu"
-                    placeholderTextColor="#808080"
-                    autoCapitalize="none"
-                    onChangeText={this.handlePassword}
-                    secureTextEntry={this.state.showPassword}
-                    value={this.state.password}
-                  />
-                  <Icon style={styles.icon}
-                    name={this.state.icEye}
-                    size={23}
-                    onPress={this.changePwdType}
-                  />
-                  </View>
-                <View style={styles.line}></View>
-                <View style={styles.forgetButton}>
-                  <TouchableOpacity>
-                    <Text style={styles.forgetButtonText}>Quên mật khẩu</Text>
-                  </TouchableOpacity>
-                </View>
-                <TouchableOpacity style={styles.submitButton} onPress={this.login}>
-                  <Text style={styles.submitButtonText}> Đăng nhập </Text>
-                </TouchableOpacity>
-                <View style={styles.signup}>
-                  <Text style={styles.txt}>Bạn chưa có tài khoản?</Text>
-                  <TouchableOpacity
-                    onPress={this.gotoSignUp}>
-                    <Text style={styles.btnSignup}>Đăng ký</Text>
-                  </TouchableOpacity>
-                </View>
+              <View style={styles.row}>
+                <Icons
+                  style={styles.iconUser}
+                  name="user"
+                  size={23}
+                />
+                <TextInput
+                  style={styles.input}
+                  placeholder="ID đăng nhập"
+                  placeholderTextColor="#808080"
+                  keyboardType="email-address"
+                  onChangeText={username => this.setState({ username })}
+                  value={this.state.username}
+                />
               </View>
-            </ImageBackground>
-          </ScrollView>
-        </SafeAreaView>
+              <View style={styles.line}></View>
+              <View style={styles.row}>
+                <Icons
+                  style={styles.iconUser}
+                  name="key"
+                  size={23}
+                />
+                <TextInput
+                  style={styles.input}
+                  underlineColorAndroid="transparent"
+                  placeholder="Mật khẩu"
+                  placeholderTextColor="#808080"
+                  autoCapitalize="none"
+                  onChangeText={this.handlePassword}
+                  secureTextEntry={this.state.showPassword}
+                  value={this.state.password}
+                />
+                <Icon style={styles.icon}
+                  name={this.state.icEye}
+                  size={23}
+                  onPress={this.changePwdType}
+                />
+              </View>
+              <View style={styles.line}></View>
+              <View style={styles.forgetButton}>
+                <TouchableOpacity>
+                  <Text style={styles.forgetButtonText}>Quên mật khẩu</Text>
+                </TouchableOpacity>
+              </View>
+              <TouchableOpacity style={styles.submitButton} onPress={this.login}>
+                <Text style={styles.submitButtonText}> Đăng nhập </Text>
+              </TouchableOpacity>
+              <View style={styles.signup}>
+                <Text style={styles.txt}>Bạn chưa có tài khoản?</Text>
+                <TouchableOpacity
+                  onPress={this.gotoSignUp}>
+                  <Text style={styles.btnSignup}>Đăng ký</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </ImageBackground>
+        </View>
       </>
     );
   }
@@ -124,7 +120,7 @@ export default class SignIn extends Component {
   // };
 
   gotoSignUp = () => {
-    this.props.navigation.navigate('SignUp');
+    this.props.navigation.navigate('SignUpScreen');
   };
   changePwdType = () => {
     let newState;
@@ -195,21 +191,21 @@ export default class SignIn extends Component {
       a.Status == "OK"
     ) {
       await AsyncStorage.setItem('isLoggedIn', '1');
-      this.props.navigation.navigate('App',{
+      this.props.navigation.navigate('App', {
         LoginName: a.Data.UserInfo.LoginName,
         UserName: a.Data.UserInfo.UserName,
-        CMND:a.Data.UserInfo.CMND,
-        PhoneNumber:a.Data.UserInfo.PhoneNumber,
-        Email:a.Data.UserInfo.Email,
-        DiaChi:a.Data.UserInfo.DiaChi
+        CMND: a.Data.UserInfo.CMND,
+        PhoneNumber: a.Data.UserInfo.PhoneNumber,
+        Email: a.Data.UserInfo.Email,
+        DiaChi: a.Data.UserInfo.DiaChi
       });
-      this.props.navigation.navigate('Home',{
+      this.props.navigation.navigate('Home', {
         LoginName: a.Data.UserInfo.LoginName,
         UserName: a.Data.UserInfo.UserName,
-        CMND:a.Data.UserInfo.CMND,
-        PhoneNumber:a.Data.UserInfo.PhoneNumber,
-        Email:a.Data.UserInfo.Email,
-        DiaChi:a.Data.UserInfo.DiaChi
+        CMND: a.Data.UserInfo.CMND,
+        PhoneNumber: a.Data.UserInfo.PhoneNumber,
+        Email: a.Data.UserInfo.Email,
+        DiaChi: a.Data.UserInfo.DiaChi
       });
     } else {
       Alert.alert('Đăng nhập thất bại');

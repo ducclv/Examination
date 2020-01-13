@@ -3,42 +3,30 @@ import { Dimensions, StyleSheet } from 'react-native';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'center',
-    
-  },
-  scrollView: {
-    flex: 1,
   },
   bglogo: {
     flex: 1,
-    flexDirection: 'column',
     alignItems: 'center',
-    width: Dimensions.get('window').width,
-    height: Dimensions.get('window').height,
-  },
-  logo: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: 100,
-    height: 100,
-    marginTop: 60,
+    justifyContent: 'center',
+    height: Dimensions.get('screen').height,
+    width:Dimensions.get('screen').width,
   },
   row: {
     flexDirection: 'row',
-    justifyContent:'center',
-    textAlign:'center',
-    alignItems:'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    alignItems: 'center',
   },
   icon: {
     position: 'absolute',
-    right: 10,
+    right: 20,
     color: 'gray',
   },
   iconUser: {
-    left: 15,
-    color:'white',
+    left: 30,
+    color: 'white',
   },
   title: {
     color: 'white',
@@ -53,15 +41,16 @@ export default StyleSheet.create({
   },
   input: {
     color: 'white',
+    left: 20,
     margin: 15,
     height: 40,
     width: 300,
   },
-  line:{
-    flexDirection:'row',
-    height:1,
+  line: {
+    flexDirection: 'row',
+    height: 1,
     width: 350,
-    backgroundColor:'white',
+    backgroundColor: 'white',
     opacity: 0.2,
     marginTop: -10,
   },
@@ -87,9 +76,8 @@ export default StyleSheet.create({
     paddingLeft: 5,
   },
   signup: {
-    marginTop: 30,
-    flexDirection: 'row',
-
+    marginTop: 20,
+    flexDirection: 'row'
   },
   forgetButton: {
     marginLeft: 250,
@@ -97,7 +85,7 @@ export default StyleSheet.create({
 
   },
   forgetButtonText: {
-    fontSize: 12,
+    fontSize: 14,
     color: 'white',
   }
 });

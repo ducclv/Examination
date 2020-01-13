@@ -7,9 +7,6 @@ export default StyleSheet.create({
       justifyContent: 'flex-start',
       backgroundColor: 'white',
     },
-    scrollView:{
-
-    },
     input: {
       backgroundColor: 'white',
       color: 'black',

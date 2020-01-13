@@ -6,7 +6,7 @@ import {
     AsyncStorage,
 } from 'react-native';
 import styles from './Styles/AuthLoadingStyle';
-export default class AuthLoadingScreen extends Component {
+export default class AuthLoading extends Component {
     constructor(props) {
         super(props);
         this.loadData();

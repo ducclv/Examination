@@ -1,5 +1,5 @@
 {
-  "name": "dvctd",
+  "name": "RegExam",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -11,9 +11,8 @@
   },
   "dependencies": {
     "@react-native-community/async-storage": "^1.6.2",
-    "cli": "^1.0.1",
+    "@react-native-community/viewpager": "^3.3.0",
     "expo": "^35.0.1",
-    "navbar-native": "^1.6.1",
     "react": "16.9.0",
     "react-native": "0.61.2",
     "react-native-axios": "^0.17.1",
@@ -21,9 +20,11 @@
     "react-native-camera-kit": "^8.0.2",
     "react-native-elements": "^1.2.6",
     "react-native-gesture-handler": "^1.5.0",
+    "react-native-linear-gradient": "^2.5.6",
     "react-native-modal": "^11.5.3",
     "react-native-qrcode-scanner": "^1.2.3",
     "react-native-reanimated": "^1.4.0",
+    "react-native-scrollable-tab-view": "^1.0.0",
     "react-native-simple-radio-button": "^2.7.4",
     "react-native-vector-icons": "^6.6.0",
     "react-native-xml2js": "^1.0.3",

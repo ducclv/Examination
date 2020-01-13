@@ -10,27 +10,18 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import AuthLoadingScreen from '../Components/AuthLoading';
 import MenuDrawer from '../Components/MenuDrawer';
-import SignIn from '../Components/SignIn';
-import SignUp from '../Components/SignUp';
+
 import Home from '../Components/Home';
-import DVHCC_Main from '../Components/DVHCC_Main';
-import DVHCC_Search from '../Components/DVHCC_Search';
-import Paht from '../Components/Paht';
-import Travel from '../Components/Travel';
-import Ttcb from '../Components/Ttcb';
-import Thongke from '../Components/Thongke';
-import Yte from '../Components/Yte';
-import Gctt from '../Components/Gctt';
-const MyDrawerNavigator = createDrawerNavigator({
+
+import SignInScreen from '../Containers/SignInScreen'
+import SignUpScreen from '../Containers/SignUpScreen'
+import StudentsScreen from '../Containers/StudentsScreen'
+
+const DrawerNavigator = createDrawerNavigator({
   Home: { screen: Home },
-  DVHCC_Main: { screen: DVHCC_Main },
-  Paht: { screen: Paht },
-  Travel: { screen: Travel },
-  Ttcb: { screen: Ttcb },
-  Thongke: { screen: Thongke },
-  Yte: { screen: Yte },
-  Gctt: { screen: Gctt },
-  DVHCC_Search: {screen: DVHCC_Search}
+  StudentsScreen: {
+    screen: StudentsScreen
+  }
 },
   {
     initialRouteName: 'Home',
@@ -39,13 +30,25 @@ const MyDrawerNavigator = createDrawerNavigator({
     contentComponent: MenuDrawer,//custom draw navigation
   });
 
-const AuthStack = createStackNavigator({ SignIn: SignIn, SignUp: SignUp });
+const AuthStack = createStackNavigator({
+  SignInScreen: { screen: SignInScreen, navigationOptions: ({ header: null }) },
+  SignUpScreen: {
+    screen: SignUpScreen,
+    navigationOptions: ({
+      title: 'Đăng ký tài khoản',
+      headerStyle: { height: 100 },
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    })
+  },
+});
 
 export default createAppContainer(
   createSwitchNavigator(
     {
       AuthLoading: AuthLoadingScreen,
-      App: MyDrawerNavigator,
+      App: DrawerNavigator,
       Auth: AuthStack,
     },
     {

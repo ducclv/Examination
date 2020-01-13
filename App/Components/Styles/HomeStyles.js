@@ -3,19 +3,17 @@ import { Dimensions, StyleSheet } from 'react-native';
 export default StyleSheet.create({
     container: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: 'white',
     },
     head: {
-        flex: 5,
+        flex: 0.5,
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
     },
     body: {
-        flex: 5,
+        flex: 0.5,
         flexDirection: 'column',
         justifyContent: 'flex-start',
         alignItems: 'center',
@@ -39,17 +37,8 @@ export default StyleSheet.create({
     },
     bglogo: {
         flex: 1,
-        flexDirection: 'column',
         alignItems: 'center',
-        width: Dimensions.get('window').width,
-        height: Dimensions.get('window').height,
-    },
-    logo: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        width: 100,
-        height: 100,
-        marginTop: 30,
+        justifyContent:'center',
     },
     title: {
         color: 'white',
