@@ -10,6 +10,7 @@ import {
   ScrollView,
   SafeAreaView,
   StatusBar,
+  Keyboard
 } from 'react-native';
 import styles from './Styles/SignInStyles';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -90,7 +91,7 @@ export default class SignIn extends Component {
                   <Text style={styles.forgetButtonText}>Quên mật khẩu</Text>
                 </TouchableOpacity>
               </View>
-              <TouchableOpacity style={styles.submitButton} onPress={this.login}>
+              <TouchableOpacity style={styles.submitButton} onPress={this.loginTest}>
                 <Text style={styles.submitButtonText}> Đăng nhập </Text>
               </TouchableOpacity>
               <View style={styles.signup}>
@@ -107,17 +108,17 @@ export default class SignIn extends Component {
     );
   }
 
-  // login = async () => {// test login with 'userInfor' data
-  //   if (
-  //     userInfo.email === this.state.email &&
-  //     userInfo.password === this.state.password
-  //   ) {
-  //     await AsyncStorage.setItem('isLoggedIn', '1');
-  //     this.props.navigation.navigate('Home');
-  //   } else {
-  //     Alert.alert('username or password is incorrect');
-  //   }
-  // };
+  loginTest = async () => {// test login with 'userInfor' data
+    if (
+      userInfo.email === this.state.email &&
+      userInfo.password === this.state.password
+    ) {
+      await AsyncStorage.setItem('isLoggedIn', '1');
+      this.props.navigation.navigate('HomeScreen');
+    } else {
+      Alert.alert('username or password is incorrect');
+    }
+  };
 
   gotoSignUp = () => {
     this.props.navigation.navigate('SignUpScreen');
@@ -150,6 +151,7 @@ export default class SignIn extends Component {
   };
 
   login = async () => {// login with API
+    Keyboard.dismiss()
     const xmlReqBody = `<soap:Envelope 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
     xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
@@ -191,22 +193,8 @@ export default class SignIn extends Component {
       a.Status == "OK"
     ) {
       await AsyncStorage.setItem('isLoggedIn', '1');
-      this.props.navigation.navigate('App', {
-        LoginName: a.Data.UserInfo.LoginName,
-        UserName: a.Data.UserInfo.UserName,
-        CMND: a.Data.UserInfo.CMND,
-        PhoneNumber: a.Data.UserInfo.PhoneNumber,
-        Email: a.Data.UserInfo.Email,
-        DiaChi: a.Data.UserInfo.DiaChi
-      });
-      this.props.navigation.navigate('Home', {
-        LoginName: a.Data.UserInfo.LoginName,
-        UserName: a.Data.UserInfo.UserName,
-        CMND: a.Data.UserInfo.CMND,
-        PhoneNumber: a.Data.UserInfo.PhoneNumber,
-        Email: a.Data.UserInfo.Email,
-        DiaChi: a.Data.UserInfo.DiaChi
-      });
+      this.props.navigation.navigate('Home');
+
     } else {
       Alert.alert('Đăng nhập thất bại');
     }

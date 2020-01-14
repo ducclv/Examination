@@ -5,10 +5,10 @@ import Modal from 'react-native-modal';
 import dataStudents from '../Data/ListStudents'
 import * as Animatable from 'react-native-animatable';
 import Icons from 'react-native-vector-icons/MaterialIcons'
-import styles from './Styles/Students_SearchTab'
+import styles from './Styles/Subjects_SearchTabStyles'
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
-export default class Students_SearchTab extends Component {
+export default class Subjects_SearchTab extends Component {
 
   constructor() {
     super();

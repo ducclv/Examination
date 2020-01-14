@@ -9,12 +9,12 @@ import {
   Image,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import styles from './Styles/Students_HomeTabStyles';
+import styles from './Styles/Subjects_HomeTabStyles';
 import Modal from 'react-native-modal';
 import dataStudents from '../Data/ListStudents'
 import * as Animatable from 'react-native-animatable';
 import Icons from 'react-native-vector-icons/MaterialIcons'
-export default class Students_HomeTab extends Component {
+export default class Subjects_HomeTab extends Component {
   constructor() {
     super();
     this.state = {

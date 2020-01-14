@@ -11,20 +11,20 @@ import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
 import AuthLoadingScreen from '../Components/AuthLoading';
 import MenuDrawer from '../Components/MenuDrawer';
 
-import Home from '../Components/Home';
-
+import HomeScreen from '../Containers/HomeScreen'
 import SignInScreen from '../Containers/SignInScreen'
 import SignUpScreen from '../Containers/SignUpScreen'
 import StudentsScreen from '../Containers/StudentsScreen'
+import SubjectsScreen from '../Containers/SubjectsScreen'
+import Home from '../Components/Home'
 
 const DrawerNavigator = createDrawerNavigator({
-  Home: { screen: Home },
-  StudentsScreen: {
-    screen: StudentsScreen
-  }
+  HomeScreen: { screen: HomeScreen },
+  StudentsScreen: { screen: StudentsScreen },
+  SubjectsScreen: { screen: SubjectsScreen }
 },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'HomeScreen',
     drawerWidth: 250,
     drawerPosition: 'left',
     contentComponent: MenuDrawer,//custom draw navigation

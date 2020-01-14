@@ -25,65 +25,29 @@ export default class MenuDrawer extends Component {
                             style={styles.bgw}>
                             <View style={styles.infor}>
                                 <TouchableOpacity
-                                    onPress={() => this.toggleModal()}
+                                    onPress={() => this.showAlert()}
                                     style={styles.icon}>
-                                    <Text style={styles.txt}>Đ</Text>
+                                    <Text style={styles.txt}>A</Text>
                                 </TouchableOpacity>
-
-                                <Modal
-                                    isVisible={this.state.isModalVisible}
-                                    animationIn='slideInDown'
-                                    animationOut='slideOutUp'
-                                >
-                                    <View style={styles.modal}>
-                                        <Text style={styles.titleModal}>Thông tin tài khoản</Text>
-                                        <Text style={styles.txtModal}>ID Đăng nhập</Text>
-                                        <Text style={styles.txtInforModal}>{this.props.navigation.getParam('LoginName')}</Text>
-                                        <Text style={styles.txtModal}>Họ tên</Text>
-                                        <Text style={styles.txtInforModal}>{this.props.navigation.getParam('UserName')}</Text>
-                                        <Text style={styles.txtModal}>Số CMND/CCCD</Text>
-                                        <Text style={styles.txtInforModal}>{this.props.navigation.getParam('CMND')}</Text>
-                                        <Text style={styles.txtModal}>Số điện thoại</Text>
-                                        <Text style={styles.txtInforModal}>{this.props.navigation.getParam('PhoneNumber')}</Text>
-                                        <Text style={styles.txtModal}>Email</Text>
-                                        <Text style={styles.txtInforModal}>{this.props.navigation.getParam('Email')}</Text>
-                                        <Text style={styles.txtModal}>Địa chỉ</Text>
-                                        <Text style={styles.txtInforModal}>{this.props.navigation.getParam('DiaChi')}</Text>
-                                    </View>
-                                    <View style={styles.rowModal}>
-                                        <TouchableOpacity
-                                            onPress={this.toggleModal}
-                                            style={styles.closeModal}
-                                        >
-                                            <Text style={styles.txtCloseModal}>Đóng</Text>
-                                        </TouchableOpacity>
-                                        <TouchableOpacity
-                                            onPress={() => this.showAlert()}
-                                            style={styles.SignOutModal}
-                                        >
-                                            <Text style={styles.txtSingOutModal}>Đăng xuất</Text>
-                                        </TouchableOpacity>
-                                    </View>
-                                </Modal>
                             </View>
                         </ImageBackground>
 
                         <View style={styles.home}>
                             <View style={styles.row}>
                                 <Icons name="home" size={26} style={{ color: 'gray' }} />
-                                {this.gotoScreen('Home', 'Trang chủ')}
+                                {this.gotoScreen('HomeScreen', 'Trang chủ')}
                             </View>
                         </View>
                         <View style={styles.home}>
                             <View style={styles.row}>
                                 <Icons name="user-friends" size={26} style={{ color: 'gray' }} />
-                                {this.gotoScreen('Dvhcc', 'Dịch vụ hành chính công')}
+                                {this.gotoScreen('StudentsScreen', 'Quản lý sinh viên')}
                             </View>
                         </View>
                         <View style={styles.home}>
                             <View style={styles.row}>
                                 <Icons name="mail-bulk" size={26} style={{ color: 'gray' }} />
-                                {this.gotoScreen('Paht', 'Phản ánh hiện trường')}
+                                {this.gotoScreen('SubjectsScreen', 'Quản lý môn thi')}
                             </View>
                         </View>
                         <View style={styles.home}>

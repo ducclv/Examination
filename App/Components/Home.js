@@ -30,7 +30,7 @@ export default class Home extends Component {
                         <View>
                             <View style={styles.head}>
                                 <TouchableOpacity
-                                    onPress={() => this.showAlert()}
+                                    onPress={() => this.props.navigation.openDrawer()}
                                     style={styles.icon}>
                                     <Text style={styles.txt}>A</Text>
                                 </TouchableOpacity>
@@ -45,7 +45,7 @@ export default class Home extends Component {
                                     </TouchableOpacity>
                                     <TouchableOpacity
                                         style={styles.iconButtom}
-                                        onPress={() => { this.props.navigation.navigate('Paht') }}
+                                        onPress={() => { this.props.navigation.navigate('SubjectsScreen') }}
                                     >
                                         <Icons name="mail-bulk" size={22} color={'green'} />
                                     </TouchableOpacity>
@@ -64,7 +64,7 @@ export default class Home extends Component {
                                 </View>
                                 <View style={styles.row}>
                                     <Text style={styles.titleButtom}> Quản lý sinh viên</Text>
-                                    <Text style={styles.titleButtom}> </Text>
+                                    <Text style={styles.titleButtom}> Quản lý ca thi</Text>
                                     <Text style={styles.titleButtom}> </Text>
                                     <Text style={styles.titleButtom}> </Text>
                                 </View>
