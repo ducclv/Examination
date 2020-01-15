@@ -15,8 +15,9 @@ export default StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    color: 'black',
+    color: 'gray',
     paddingLeft: 5,
+    fontWeight: "900"
   },
   content2: {
     backgroundColor: 'white',
@@ -31,8 +32,8 @@ export default StyleSheet.create({
     fontWeight: 'bold',
     color: 'black',
     fontSize: 18,
-    marginLeft: 40,
-    paddingTop: 20,
+    padding: 10,
+    alignSelf:'center'
   },
   containerFlatList: {
     backgroundColor: '#fff',
@@ -41,6 +42,5 @@ export default StyleSheet.create({
     borderColor: '#e8e8e8',
     padding: 10,
     margin: 5,
-    flexDirection:'row'
   }
 })

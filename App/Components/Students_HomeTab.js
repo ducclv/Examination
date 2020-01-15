@@ -14,20 +14,30 @@ import Modal from 'react-native-modal';
 import dataStudents from '../Data/ListStudents'
 import * as Animatable from 'react-native-animatable';
 import Icons from 'react-native-vector-icons/MaterialIcons'
+import axios from 'react-native-axios'
 export default class Students_HomeTab extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       data: [],
       detail: [],
       visibleModal: false
     }
+    this.getDataStudents = this.getDataStudents.bind(this)
   }
 
   componentDidMount() {
-    this.setState({ data: dataStudents })
+    this.getDataStudents()
   }
-
+  getDataStudents = async () => {
+    var a = await axios(`http://192.168.42.90:4000/getAllStudent`, {
+      method: 'GET',
+    })
+    .then((rs) => {
+      return rs.data
+    })
+    this.setState({data: a})
+  }
   renderModalContent = () => {
     const { detail, visibleModal } = this.state
     if (visibleModal) {

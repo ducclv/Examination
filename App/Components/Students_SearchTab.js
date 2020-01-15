@@ -6,6 +6,7 @@ import dataStudents from '../Data/ListStudents'
 import * as Animatable from 'react-native-animatable';
 import Icons from 'react-native-vector-icons/MaterialIcons'
 import styles from './Styles/Students_SearchTab'
+import axios from 'react-native-axios'
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
 export default class Students_SearchTab extends Component {
@@ -18,13 +19,11 @@ export default class Students_SearchTab extends Component {
       searchKey: '',
       data: [],
       detail: [],
+      search: [],
     }
   }
-  componentDidMount(){
-    this.setState({searchKey: ''})
-  }
-  componentWillMount(){
-    this.setState({searchKey: ''})
+  componentWillMount() {
+    this.setState({ searchKey: '' })
   }
 
   renderItem = ({ item, index }) => {
@@ -63,19 +62,25 @@ export default class Students_SearchTab extends Component {
 
   searchFunction = async (searchKey) => {
     Keyboard.dismiss()
-    this.setState({ data: [] })
+    var a = await axios(`http://192.168.42.90:4000/getAllStudent`, {
+      method: 'GET',
+    })
+      .then((rs) => {
+        return rs.data
+      })
+    searchKey = parseInt(searchKey)
     if (searchKey === '') {
       ToastAndroid.show('Vui lòng nhập từ khóa', ToastAndroid.LONG);
     }
     else {
       this.setState({ visibleModalLoading: true })
       var dataSearch = []
-      for (let i = 0; i < dataStudents.length; i++) {
-        if (searchKey === dataStudents[i].studentID) {
-          dataSearch.push(dataStudents[i])
+      for (var i = 0; i < a.length; i++) {
+        if (searchKey === a[i].studentID) {
+          dataSearch.push(a[i])
         }
       }
-
+      this.setState({ data: dataSearch })
       if (dataSearch.length > 0) {
         setTimeout(() => { this.setState({ visibleModalLoading: false, data: dataSearch }) + ToastAndroid.show(`Đã tìm thấy ${dataSearch.length} sinh viên`, ToastAndroid.LONG); }, 1000)
       }
@@ -125,9 +130,9 @@ export default class Students_SearchTab extends Component {
         <View style={{ height: 50, marginTop: 30 }}>
           <TextInput style={{ flex: 1 }}
             placeholder='Nhập nội dung tìm kiếm...'
-            onChangeText={(text) => { this.setState({ searchKey: text }) }} 
+            onChangeText={(text) => { this.setState({ searchKey: text }) }}
             value={this.state.searchKey}
-            />
+          />
         </View>
         <Button
           type='outline'
