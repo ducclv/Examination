@@ -16,12 +16,13 @@ import SignInScreen from '../Containers/SignInScreen'
 import SignUpScreen from '../Containers/SignUpScreen'
 import StudentsScreen from '../Containers/StudentsScreen'
 import SubjectsScreen from '../Containers/SubjectsScreen'
-import Home from '../Components/Home'
+import StudentsAddScreen from '../Containers/StudentsAddScreen'
 
 const DrawerNavigator = createDrawerNavigator({
   HomeScreen: { screen: HomeScreen },
   StudentsScreen: { screen: StudentsScreen },
-  SubjectsScreen: { screen: SubjectsScreen }
+  SubjectsScreen: { screen: SubjectsScreen },
+  StudentsAddScreen: { screen: StudentsAddScreen },
 },
   {
     initialRouteName: 'HomeScreen',

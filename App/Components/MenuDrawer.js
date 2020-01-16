@@ -53,19 +53,19 @@ export default class MenuDrawer extends Component {
                         <View style={styles.home}>
                             <View style={styles.row}>
                                 <Icons name="umbrella-beach" size={25} style={{ color: 'gray' }} />
-                                {this.gotoScreen('Travel', 'Du lịch')}
+                                {this.gotoScreen('Travel', '')}
                             </View>
                         </View>
                         <View style={styles.home}>
                             <View style={styles.row}>
                                 <Icon name="warning" size={26} style={{ color: 'gray' }} />
-                                {this.gotoScreen('Ttcb', 'Thông tin cảnh báo')}
+                                {this.gotoScreen('Ttcb', '')}
                             </View>
                         </View>
                         <View style={styles.home}>
                             <View style={styles.row}>
                                 <Icons name="hospital-alt" size={24} style={{ color: 'gray' }} />
-                                {this.gotoScreen('Yte', 'Y tế')}
+                                {this.gotoScreen('Yte', '')}
                             </View>
                         </View>
                         <View style={styles.home}>

@@ -9,8 +9,9 @@ import styles from './Styles/Students_SearchTab'
 import axios from 'react-native-axios'
 const width = Dimensions.get('window').width
 const height = Dimensions.get('window').height
-export default class Students_SearchTab extends Component {
+import {URL_GET_ALL_STUDENTS} from '../Config/api'
 
+export default class Students_SearchTab extends Component {
   constructor() {
     super();
     this.state = {
@@ -62,7 +63,7 @@ export default class Students_SearchTab extends Component {
 
   searchFunction = async (searchKey) => {
     Keyboard.dismiss()
-    var a = await axios(`http://192.168.42.90:4000/getAllStudent`, {
+    var a = await axios(URL_GET_ALL_STUDENTS, {
       method: 'GET',
     })
       .then((rs) => {

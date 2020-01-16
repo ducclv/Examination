@@ -7,6 +7,7 @@ import {
   FlatList,
   ToastAndroid,
   Image,
+  RefreshControl,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import styles from './Styles/Students_HomeTabStyles';
@@ -15,13 +16,16 @@ import dataStudents from '../Data/ListStudents'
 import * as Animatable from 'react-native-animatable';
 import Icons from 'react-native-vector-icons/MaterialIcons'
 import axios from 'react-native-axios'
+import { URL_GET_ALL_STUDENTS } from '../Config/api'
+
 export default class Students_HomeTab extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
       detail: [],
-      visibleModal: false
+      visibleModal: false,
+      refreshing: true
     }
     this.getDataStudents = this.getDataStudents.bind(this)
   }
@@ -29,14 +33,24 @@ export default class Students_HomeTab extends Component {
   componentDidMount() {
     this.getDataStudents()
   }
+  // componentWillMount(){
+  //   this.setState({data: []})
+  // }
   getDataStudents = async () => {
-    var a = await axios(`http://192.168.42.90:4000/getAllStudent`, {
+    this.setState({
+      refreshing: true,
+    })
+    var a = await axios(URL_GET_ALL_STUDENTS, {
       method: 'GET',
     })
-    .then((rs) => {
-      return rs.data
-    })
-    this.setState({data: a})
+      .then((rs) => {
+        return rs.data
+      })
+    this.setState({ data: a, refreshing: false })
+  }
+  onRefresh = () => {
+    
+    this.getDataStudents()
   }
   renderModalContent = () => {
     const { detail, visibleModal } = this.state
@@ -95,21 +109,30 @@ export default class Students_HomeTab extends Component {
   renderBody() {
     return (
       <View style={styles.container}>
-        <FlatList
-          showsVerticalScrollIndicator={false}
-          data={this.state.data}
-          renderItem={this.renderItem}
-          keyExtractor={(item, index) => index.toString()}
-        />
-        <Modal
-          onBackdropPress={() => this.setState({ visibleModal: false })}
-          backdropTransitionOutTiming={0}
-          isVisible={this.state.visibleModal}
-          style={{ margin: 0 }}
-          hideModalContentWhileAnimating={true}>
-          {this.renderModalContent()}
-        </Modal>
-      </View>
+        <ScrollView contentContainerStyle={{ padding: 10 }} style={{ flex: 1 }}
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={() => this.onRefresh()}
+            />
+          }
+        >
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            data={this.state.data}
+            renderItem={this.renderItem}
+            keyExtractor={(item, index) => index.toString()}
+          />
+          <Modal
+            onBackdropPress={() => this.setState({ visibleModal: false })}
+            backdropTransitionOutTiming={0}
+            isVisible={this.state.visibleModal}
+            style={{ margin: 0 }}
+            hideModalContentWhileAnimating={true}>
+            {this.renderModalContent()}
+          </Modal>
+        </ScrollView>
+      </View >
     )
   }
 

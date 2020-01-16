@@ -6,7 +6,8 @@ export default StyleSheet.create({
     color: 'black'
   },
   container: {
-    flex: 1
+    flex: 1,
+    backgroundColor: "#F4F6F9",
   },
   section: {
     fontSize: 14,
